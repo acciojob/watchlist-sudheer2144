@@ -34,7 +34,11 @@ public class MovieService {
     public Director getDirector(String name){
         return movierepo.getDirector(name);
     }
-
+/////////////////////Mock Interview Code
+    public String getDirectorByMovie(String name){
+        return movierepo.getDirectorByMovie(name);
+    }
+////////////////////Mock Interview Code
     public List<String> getListOfMovies(String teacher){
         return movierepo.getListOfMovies(teacher);
     }

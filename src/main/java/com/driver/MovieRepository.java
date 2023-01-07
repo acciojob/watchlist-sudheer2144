@@ -2,11 +2,10 @@ package com.driver;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class MovieRepository {
@@ -27,7 +26,7 @@ public class MovieRepository {
     }
 
     public void addPair(String movie,String director){
-        List<String> movieList=new ArrayList<>();;
+        List<String> movieList=new ArrayList<>();
         if(pair.containsKey(director)) {
             movieList=pair.get(director);
         }
@@ -40,8 +39,23 @@ public class MovieRepository {
     }
 
     public Director getDirector(String name){
+
         return directors.get(name);
     }
+
+    ///////////////////////Mock Interview Code
+    public String getDirectorByMovie(String name){
+        for(String director:pair.keySet()){
+            List<String> movieList=pair.get(director);
+            for(String movie:movieList){
+                if(movie.equals(name)){
+                    return director;
+                }
+            }
+        }
+        return null;
+    }
+    //////////////////////Mock Interview Code
 
     public List<String> getListOfMovies(String director){
         return pair.get(director);

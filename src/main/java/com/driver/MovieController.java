@@ -43,7 +43,12 @@ public class MovieController {
     public ResponseEntity<Director> getDirectorByName(@PathVariable String name){
         return new ResponseEntity<>(movieservice.getDirector(name),HttpStatus.CREATED);
     }
-
+    ////////////////Mock Session Code
+    @GetMapping("/get-director-by-movie-name/{name}")
+    public ResponseEntity<String> getDirectorByMovieName(@PathVariable String name){
+        return new ResponseEntity<>(movieservice.getDirectorByMovie(name),HttpStatus.CREATED);
+    }
+/////////////////////Mock Session Code
     @GetMapping("/get-movies-by-director-name/{director}")
     public ResponseEntity<List<String>> getMoviesByDirectorName(@PathVariable String director){
         return new ResponseEntity<>(movieservice.getListOfMovies(director),HttpStatus.CREATED);
